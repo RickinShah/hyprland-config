@@ -87,7 +87,7 @@
     	"format": " {:%H:%M}",
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "  {:%d-%m-%Y}"
+        "format-alt": " {:%d-%m-%Y}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -155,9 +155,9 @@
             "default": ["", "", ""]
         },
 	"tooltip-format": "{icon}   {volume}%",
-        "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-	"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1% && notify-volume",
-	"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1% && notify-volume"
+        "on-click":"pamixer --toggle-mute",
+	"on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 1 && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga",
+	"on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 1 && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
     },
     "custom/launcher":{
         "format": " ",
